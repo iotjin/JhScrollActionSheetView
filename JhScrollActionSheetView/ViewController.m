@@ -187,7 +187,6 @@
         {
             
                     JhScrollActionSheetView *actionSheet = [[JhScrollActionSheetView alloc]initWithTitle:@"分享到"  shareDataArray:self.shareArray otherDataArray:self.otherArray];
-                    //    [self.view addSubview:actionSheetView];
                     actionSheet.clickShareBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
                         NSLog(@" 点击分享 index %ld ",(long)index);
                     };
