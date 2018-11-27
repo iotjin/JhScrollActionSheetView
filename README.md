@@ -18,36 +18,36 @@ JhScrollActionSheetView - UIcollectionView横向滚动,类似微博新版的详�
 
 * Demo1
 ```
-      //带标题,双排
-     JhScrollActionSheetView *actionSheet = [[JhScrollActionSheetView alloc]initWithTitle:@"分享到"  shareDataArray:self.shareArray otherDataArray:self.otherArray];
-      actionSheet.clickShareBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-          NSLog(@" 点击分享 index %ld ",(long)index);
-      };
-      actionSheet.clickOtherBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-          NSLog(@" 点击其他 index %ld ",(long)index);
-      };
+//带标题,双排
+JhScrollActionSheetView *actionSheet = [[JhScrollActionSheetView alloc]initWithTitle:@"分享到"  shareDataArray:self.shareArray otherDataArray:self.otherArray];
+actionSheet.clickShareBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+    NSLog(@" 点击分享 index %ld ",(long)index);
+};
+actionSheet.clickOtherBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+    NSLog(@" 点击其他 index %ld ",(long)index);
+};
 
-      [actionSheet show];
+[actionSheet show];
 
 ```
 
 * Demo2
 ```
-          //带标题,单排
-         [JhScrollActionSheetView showShareActionSheetWithTitle:@"分享" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-          NSLog(@" 点击分享 index %ld ",(long)index);
+//带标题,单排
+ [JhScrollActionSheetView showShareActionSheetWithTitle:@"分享" shareDataArray:self.shareArray                            handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+                        NSLog(@" 点击分享 index %ld ",(long)index);
                         
-           }];    
+                    }]; 
     
 
 ```
 
 * Demo3
 ```
-        //不带标题,单排  
-       [JhScrollActionSheetView showShareActionSheetWithTitle:@"" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-                        NSLog(@"点击分享 index %ld ",(long)index);
-                        
-                    }];
+//不带标题,单排  
+[JhScrollActionSheetView showShareActionSheetWithTitle:@"" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+            NSLog(@"点击分享 index %ld ",(long)index);
+
+        }];
 
 ```
