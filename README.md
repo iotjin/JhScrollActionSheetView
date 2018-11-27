@@ -5,8 +5,11 @@ JhScrollActionSheetView - UIcollectionView横向滚动,类似微博新版的详�
 
 
 ![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/0.gif)  
-![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/1.png)  <br> 
+
+![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/1.png)  <br>
+
 ![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/2.png)  <br> 
+
 ![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/3.png)  <br> 
 
 ## Examples
