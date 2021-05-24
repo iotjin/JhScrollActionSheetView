@@ -24,124 +24,13 @@
 @implementation ViewController
 
 
--(NSMutableArray *)shareArray{
-    if (!_shareArray) {
-        _shareArray = [NSMutableArray new];
-        
-            NSArray *data = @[
-                              @{
-                                  @"text" : @"微信",
-                                  @"img" : @"weixing",
-                                  },
-                              @{
-                                  @"text" : @"朋友圈",
-                                  @"img" : @"friends",
-                                  },
-                              @{
-                                  @"text" : @"微博",
-                                  @"img" : @"sina",
-                                  },
-                              @{
-                                  @"text" : @"QQ",
-                                  @"img" : @"qq",
-                                  },
-                              @{
-                                  @"text" : @"QQ空间",
-                                  @"img" : @"kongjian",
-                                  },
-                              
-                              
-                              
-                              
-                              @{
-                                  @"text" : @"微信",
-                                  @"img" : @"weixing",
-                                  },
-                              @{
-                                  @"text" : @"朋友圈",
-                                  @"img" : @"friends",
-                                  },
-                              @{
-                                  @"text" : @"微博",
-                                  @"img" : @"sina",
-                                  },
-                              @{
-                                  @"text" : @"QQ",
-                                  @"img" : @"qq",
-                                  },
-                              @{
-                                  @"text" : @"QQ空间",
-                                  @"img" : @"kongjian",
-                                  },
-                              
-                              
-                              ];
-    
-         self.shareArray = [JhPageItemModel mj_objectArrayWithKeyValuesArray:data];
-
-        
-    }
-    return _shareArray;
-}
-
-
-
--(NSMutableArray *)otherArray{
-    if (!_otherArray) {
-        _otherArray = [NSMutableArray new];
-        
-        NSArray *data = @[
-                          @{
-                              @"text" : @"字体设置",
-                              @"img" : @"fontsize",
-                              },
-                          @{
-                              @"text" : @"复制链接",
-                              @"img" : @"copylink",
-                              },
-                          @{
-                              @"text" : @"字体设置",
-                              @"img" : @"fontsize",
-                              },
-                          @{
-                              @"text" : @"复制链接",
-                              @"img" : @"copylink",
-                              },
-                          
-                          @{
-                              @"text" : @"字体设置",
-                              @"img" : @"fontsize",
-                              },
-                          @{
-                              @"text" : @"复制链接",
-                              @"img" : @"copylink",
-                              },
-                          
-                          @{
-                              @"text" : @"字体设置",
-                              @"img" : @"fontsize",
-                              },
-                       
-                          
-                          
-                          ];
-        
-        self.otherArray = [JhPageItemModel mj_objectArrayWithKeyValuesArray:data];
-        
-        
-    }
-    return _otherArray;
-}
-
-
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     
+    [self setUI];
+}
+
+- (void)setUI {
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     shareBtn.frame = CGRectMake(100, 100, 50, 50);
     shareBtn.backgroundColor = [UIColor orangeColor];
@@ -150,8 +39,7 @@
     [shareBtn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     shareBtn.tag = 11;
     [self.view addSubview:shareBtn];
-    
-    
+
     UIButton *shareBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     shareBtn2.frame = CGRectMake(100, 200, 50, 50);
     shareBtn2.backgroundColor = [UIColor orangeColor];
@@ -170,68 +58,124 @@
     [shareBtn3 addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     shareBtn3.tag = 13;
     [self.view addSubview:shareBtn3];
-    
-    
-    
-    
-    
 }
 
-
-
--(void)click:(UIButton *)btn{
-
-
-    switch (btn.tag) {
-        case 11:
-        {
-            
-                    JhScrollActionSheetView *actionSheet = [[JhScrollActionSheetView alloc]initWithTitle:@"分享到"  shareDataArray:self.shareArray otherDataArray:self.otherArray];
-                    actionSheet.clickShareBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-                        NSLog(@" 点击分享 index %ld ",(long)index);
-                    };
-                    actionSheet.clickOtherBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-                        NSLog(@" 点击其他 index %ld ",(long)index);
-                    };
-            
-                    [actionSheet show];
-            
-            
-        }
-            break;
-            
-        case 12:
-        {
-            
-                    [JhScrollActionSheetView showShareActionSheetWithTitle:@"分享" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-                        NSLog(@" 点击分享 index %ld ",(long)index);
-                        
-                    }];
-            
-            
-            
-        }
-            break;
-            
-            
-        case 13:
-        {
-            
-                    [JhScrollActionSheetView showShareActionSheetWithTitle:@"" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
-                        NSLog(@"点击分享 index %ld ",(long)index);
-                        
-                    }];
-            
-        }
-            break;
-            
-        default:
-            break;
+- (void)click:(UIButton *)btn {
+    if (btn.tag == 11 ) {
+        JhScrollActionSheetView *actionSheet = [[JhScrollActionSheetView alloc]initWithTitle:@"分享到"  shareDataArray:self.shareArray otherDataArray:self.otherArray];
+        actionSheet.clickShareBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+            NSLog(@" 点击分享 index %ld ",(long)index);
+        };
+        actionSheet.clickOtherBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+            NSLog(@" 点击其他 index %ld ",(long)index);
+        };
+        [actionSheet show];
     }
-    
-
-
+    if (btn.tag == 12 ) {
+        [JhScrollActionSheetView showShareActionSheetWithTitle:@"分享" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+            NSLog(@" 点击分享 index %ld ",(long)index);
+        }];
+    }
+    if (btn.tag == 13 ) {
+        [JhScrollActionSheetView showShareActionSheetWithTitle:@"" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
+            NSLog(@"点击分享 index %ld ",(long)index);
+        }];
+    }
 }
+
+- (NSMutableArray *)shareArray {
+    if (!_shareArray) {
+        _shareArray = [NSMutableArray new];
+        NSArray *data = @[
+            @{
+                @"text" : @"微信",
+                @"img" : @"weixing",
+            },
+            @{
+                @"text" : @"朋友圈",
+                @"img" : @"friends",
+            },
+            @{
+                @"text" : @"微博",
+                @"img" : @"sina",
+            },
+            @{
+                @"text" : @"QQ",
+                @"img" : @"qq",
+            },
+            @{
+                @"text" : @"QQ空间",
+                @"img" : @"kongjian",
+            },
+            
+            
+            @{
+                @"text" : @"微信",
+                @"img" : @"weixing",
+            },
+            @{
+                @"text" : @"朋友圈",
+                @"img" : @"friends",
+            },
+            @{
+                @"text" : @"微博",
+                @"img" : @"sina",
+            },
+            @{
+                @"text" : @"QQ",
+                @"img" : @"qq",
+            },
+            @{
+                @"text" : @"QQ空间",
+                @"img" : @"kongjian",
+            },
+        ];
+        self.shareArray = [JhPageItemModel mj_objectArrayWithKeyValuesArray:data];
+    }
+    return _shareArray;
+}
+
+- (NSMutableArray *)otherArray {
+    if (!_otherArray) {
+        _otherArray = [NSMutableArray new];
+        NSArray *data = @[
+            @{
+                @"text" : @"字体设置",
+                @"img" : @"fontsize",
+            },
+            @{
+                @"text" : @"复制链接",
+                @"img" : @"copylink",
+            },
+            @{
+                @"text" : @"字体设置",
+                @"img" : @"fontsize",
+            },
+            @{
+                @"text" : @"复制链接",
+                @"img" : @"copylink",
+            },
+            
+            @{
+                @"text" : @"字体设置",
+                @"img" : @"fontsize",
+            },
+            @{
+                @"text" : @"复制链接",
+                @"img" : @"copylink",
+            },
+            
+            @{
+                @"text" : @"字体设置",
+                @"img" : @"fontsize",
+            },
+        ];
+        self.otherArray = [JhPageItemModel mj_objectArrayWithKeyValuesArray:data];
+    }
+    return _otherArray;
+}
+
+
 
 
 
