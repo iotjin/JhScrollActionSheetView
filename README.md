@@ -1,8 +1,8 @@
 # JhScrollActionSheetView
+
 JhScrollActionSheetView - UIcollectionView横向滚动,类似微博新版的详情页分享界面 <br> 
 可设置单排或双排显示,title不设置不显示title <br> 
 如果想实现发送站内用户的功能,自己可以改一下代码
-
 
 ![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/0.gif)  
 
@@ -13,8 +13,6 @@ JhScrollActionSheetView - UIcollectionView横向滚动,类似微博新版的详�
 ![](https://raw.githubusercontent.com/iotjin/JhScrollActionSheetView/master/JhScrollActionSheetView/screenshots/3.png)  <br> 
 
 ## Examples
-
-
 
 * Demo1
 ```objc
@@ -36,7 +34,6 @@ actionSheet.clickOtherBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger 
  [JhScrollActionSheetView showShareActionSheetWithTitle:@"分享" shareDataArray:self.shareArray                            handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
     NSLog(@" 点击分享 index %ld ",(long)index);                 
 }]; 
-    
 ```
 
 * Demo3
@@ -45,5 +42,4 @@ actionSheet.clickOtherBlock = ^(JhScrollActionSheetView *actionSheet, NSInteger 
 [JhScrollActionSheetView showShareActionSheetWithTitle:@"" shareDataArray:self.shareArray handler:^(JhScrollActionSheetView *actionSheet, NSInteger index) {
     NSLog(@"点击分享 index %ld ",(long)index);
 }];
-
 ```
